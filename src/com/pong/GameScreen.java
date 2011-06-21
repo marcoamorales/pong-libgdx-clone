@@ -3,11 +3,11 @@ package com.pong;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.GLCommon;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.pong.World.WorldListener;
 
@@ -27,6 +27,7 @@ public class GameScreen extends Screen{
 	int player2Score;
 	String player1ScoreString;
 	String player2ScoreString;
+	FPSLogger fpslogger;
 	
 	public GameScreen(Game game){
 		super(game);
@@ -47,6 +48,7 @@ public class GameScreen extends Screen{
 		player2Score = 0;
 		player1ScoreString = "0";
 		player2ScoreString = "0";
+		fpslogger = new FPSLogger();
 	}
 
 	@Override
@@ -96,6 +98,8 @@ public class GameScreen extends Screen{
 			player2ScoreString = "" + player2Score;
 		}
 		
+		fpslogger.log();
+		
 	}
 	
 	private void updateWon(){
@@ -135,7 +139,7 @@ public class GameScreen extends Screen{
 	public void presentRunning(){
 		Assets.font.draw(batcher, player1ScoreString, 16, 300);
 		Assets.font.draw(batcher, player2ScoreString, 450, 300);
-		System.out.println(world.ball.position.toString());
+//		System.out.println(world.ball.position.toString());
 	}
 	
 	public void presentWon(){
