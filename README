@@ -1,0 +1,25 @@
+Project Name: Pong-libgdx-clone
+
+What is it?
+-----------
+
+Pong-libgdx-clone as the name says, a pong clone created with the
+game development framework libgdx.
+
+Installation
+------------
+The project is an Eclipse IDE project, and has been uploaded as it is.
+You can open this project by going into Eclipse, File>Import>General>Existing Project from Source
+
+Libgdx
+------
+
+Libgdx official website is http://libgdx.badlogicgames.com/, where
+you can learn more about the framework and find its documentation.
+
+Licensing
+---------
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0
+Unported License. To view a copy of this license, visit 
+http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to 
+Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
