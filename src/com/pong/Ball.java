@@ -28,6 +28,7 @@ public class Ball extends GameObject {
 	
 	public void score(){
 		position.set(10, 10);
+		velocity.set(15, 15);
 		bounds.x = position.x - bounds.width / 2;
 		bounds.y = position.y - bounds.height / 2;
 	}
