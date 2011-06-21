@@ -8,6 +8,7 @@ game development framework libgdx.
 
 Installation
 ------------
+
 The project is an Eclipse IDE project, and has been uploaded as it is.
 You can open this project by going into Eclipse, File>Import>General>Existing Project from Source
 
@@ -16,6 +17,12 @@ Libgdx
 
 Libgdx official website is http://libgdx.badlogicgames.com/, where
 you can learn more about the framework and find its documentation.
+
+Attributions
+------------
+
+The 'Nullification' remixed used in this game has been done by PrototypeRaptor over at Overclocked Remix
+http://ocremix.org/remix/OCR02226/
 
 Licensing
 ---------
