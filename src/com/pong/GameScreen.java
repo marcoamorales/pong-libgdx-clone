@@ -76,7 +76,12 @@ public class GameScreen extends Screen{
 	
 	private void updateRunning (float deltaTime){
 		if (Gdx.app.getType() == Application.ApplicationType.Android){
-			//codigo para mover los paddle con touchscreen
+			if (Gdx.input.getX() < 480 / 2){
+				world.paddleP1.position.y = Gdx.input.getY() / 10;
+			}
+			if (Gdx.input.getX() > 480 / 2){
+				world.paddleP2.position.y = Gdx.input.getY() / 10;
+			}
 		}
 		else{
 			float accel1 = 0;
@@ -133,13 +138,12 @@ public class GameScreen extends Screen{
 	}
 	
 	public void presentReady(){
-		//solo espera un click para empezar, no se dibuja nada
+		//waits for a click or touchscreen, doesn't render anything
 	}
 	
 	public void presentRunning(){
 		Assets.font.draw(batcher, player1ScoreString, 16, 300);
 		Assets.font.draw(batcher, player2ScoreString, 450, 300);
-//		System.out.println(world.ball.position.toString());
 	}
 	
 	public void presentWon(){
