@@ -77,11 +77,12 @@ public class GameScreen extends Screen{
 	private void updateRunning (float deltaTime){
 		if (Gdx.app.getType() == Application.ApplicationType.Android){
 			if (Gdx.input.getX() < 480 / 2){
-				world.paddleP1.position.y = Gdx.input.getY() / 10;
+				world.paddleP1.position.y = 32 - (Gdx.input.getY() / 10);
 			}
 			if (Gdx.input.getX() > 480 / 2){
-				world.paddleP2.position.y = Gdx.input.getY() / 10;
+				world.paddleP2.position.y = 32 - (Gdx.input.getY() / 10);
 			}
+			world.update(deltaTime, 0, 0);
 		}
 		else{
 			float accel1 = 0;
