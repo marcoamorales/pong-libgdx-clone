@@ -143,8 +143,8 @@ public class GameScreen extends Screen{
 	}
 	
 	public void presentRunning(){
-		Assets.font.draw(batcher, player1ScoreString, 16, 300);
-		Assets.font.draw(batcher, player2ScoreString, 450, 300);
+		Assets.font.draw(batcher, player1ScoreString, 36, 300);
+		Assets.font.draw(batcher, player2ScoreString, 420, 300);
 	}
 	
 	public void presentWon(){

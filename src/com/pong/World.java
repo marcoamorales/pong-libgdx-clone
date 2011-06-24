@@ -38,9 +38,10 @@ public class World {
 	}
 	
 	public void updateBall(float deltaTime){
-		if (ball.position.y >= WORLD_HEIGHT)
+		ball.update(deltaTime);
+		if (ball.position.y >= WORLD_HEIGHT && ball.velocity.y > 0)
 			ball.velocity.y = ball.velocity.y * -1;
-		if (ball.position.y <= 0)
+		if (ball.position.y <= 0 && ball.velocity.y < 0)
 			ball.velocity.y = ball.velocity.y * -1;
 		if (ball.position.x >= WORLD_WIDTH){
 			scoreP1++;
@@ -50,7 +51,7 @@ public class World {
 			scoreP2++;
 			ball.score();
 		}
-		ball.update(deltaTime);
+		
 	}
 	
 	public void updatePaddles(float deltaTime, float accelP1, float accelP2){
@@ -61,18 +62,18 @@ public class World {
 	}
 	
 	public void checkCollisions(){
-		if (OverlapTester.overlapRectangles(paddleP1.bounds, ball.bounds)){
+		if (OverlapTester.overlapRectangles(paddleP1.bounds, ball.bounds) && ball.velocity.x < 0){
 			ball.velocity.x = ball.velocity.x * -1;
 		}
-		if (OverlapTester.overlapRectangles(paddleP2.bounds, ball.bounds)){
+		if (OverlapTester.overlapRectangles(paddleP2.bounds, ball.bounds) && ball.velocity.x > 0){
 			ball.velocity.x = ball.velocity.x * -1;
 		}
 	}
 	
 	public void checkGameOver(){
-//		if (scoreP1 > 15 || scoreP2 > 15){
-//			state = WORLD_STATE_GAME_END;
-//		}
+		if (scoreP1 > 15 || scoreP2 > 15){
+			state = WORLD_STATE_GAME_END;
+		}
 	}
 	
 	
