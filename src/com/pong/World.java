@@ -64,10 +64,14 @@ public class World {
 	public void checkCollisions(){
 		if (OverlapTester.overlapRectangles(paddleP1.bounds, ball.bounds) && ball.velocity.x < 0){
 			ball.velocity.x = ball.velocity.x * -1;
+			ball.velocity.x = ball.velocity.x * 1.1f;
+			ball.velocity.y = ball.velocity.y * 1.1f;
 			listener.bump();
 		}
 		if (OverlapTester.overlapRectangles(paddleP2.bounds, ball.bounds) && ball.velocity.x > 0){
 			ball.velocity.x = ball.velocity.x * -1;
+			ball.velocity.x = ball.velocity.x * 1.1f;
+			ball.velocity.y = ball.velocity.y * 1.1f;
 			listener.bump();
 		}
 	}
