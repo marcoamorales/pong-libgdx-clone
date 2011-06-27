@@ -76,11 +76,13 @@ public class GameScreen extends Screen{
 	
 	private void updateRunning (float deltaTime){
 		if (Gdx.app.getType() == Application.ApplicationType.Android){
-			if (Gdx.input.getX() < 480 / 2){
-				world.paddleP1.position.y = 32 - (Gdx.input.getY() / 10);
-			}
-			if (Gdx.input.getX() > 480 / 2){
-				world.paddleP2.position.y = 32 - (Gdx.input.getY() / 10);
+			while (Gdx.input.isTouched()){
+				for (int i = 0; i < 5; i++){
+					if (Gdx.input.getX(i) > Gdx.graphics.getWidth() / 2)
+						world.paddleP2.position.y = Gdx.input.getY(i);
+					if (Gdx.input.getX(i) < Gdx.graphics.getWidth() / 2)
+						world.paddleP1.position.y = Gdx.input.getY(i);
+				}
 			}
 			world.update(deltaTime, 0, 0);
 		}

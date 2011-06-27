@@ -13,11 +13,13 @@ public class Assets {
 	public static Texture textureatlas;
 	public static TextureRegion gameScreenBackgroundRegion;
 	public static TextureRegion mainMenuScreenRegion;
+	public static TextureRegion help1ScreenRegion;
+	public static TextureRegion help2ScreenRegion;
+	public static TextureRegion aboutScreenRegion;
 	public static TextureRegion paddle;
 	public static TextureRegion ball;
 	public static BitmapFont font;
 	
-	public static Music music;
 	public static Sound bounceSound;
 	
 	public static Texture loadTexture(String file){
@@ -28,15 +30,14 @@ public class Assets {
 		textureatlas = loadTexture("data/screen_atlas.png");
 		gameScreenBackgroundRegion = new TextureRegion(textureatlas, 0,0,480,320);
 		mainMenuScreenRegion = new TextureRegion(textureatlas, 0,320,480,320);
+		help1ScreenRegion = new TextureRegion(textureatlas, 480, 320, 480, 320);
+		help2ScreenRegion = new TextureRegion(textureatlas, 480, 640, 480, 320);
+		aboutScreenRegion = new TextureRegion(textureatlas, 0, 640, 480, 320);
 		paddle = new TextureRegion(textureatlas, 480,0,10,64);
 		ball = new TextureRegion(textureatlas, 526,46,10,10);
 		
 		font = new BitmapFont(Gdx.files.internal("data/font.fnt"), Gdx.files.internal("data/font.png"), false);
 		
-		music = Gdx.audio.newMusic(Gdx.files.internal("data/loz-oc-remix.mp3"));
-		music.setLooping(true);
-		music.setVolume(0.5f);
-		music.play();
 		bounceSound = Gdx.audio.newSound(Gdx.files.internal("data/ball_bump.wav"));
 	}
 	
