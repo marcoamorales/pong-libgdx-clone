@@ -8,10 +8,11 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.GLCommon;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 import com.pong.World.WorldListener;
 
-public class GameScreen extends Screen{
+public class GameScreen extends Screen implements InputProcessor{
 	static final int GAME_READY = 0;
 	static final int GAME_RUNNING = 1;
 	static final int GAME_WON = 2;
@@ -76,13 +77,8 @@ public class GameScreen extends Screen{
 	
 	private void updateRunning (float deltaTime){
 		if (Gdx.app.getType() == Application.ApplicationType.Android){
-			while (Gdx.input.isTouched()){
-				for (int i = 0; i < 5; i++){
-					if (Gdx.input.getX(i) > Gdx.graphics.getWidth() / 2)
-						world.paddleP2.position.y = Gdx.input.getY(i);
-					if (Gdx.input.getX(i) < Gdx.graphics.getWidth() / 2)
-						world.paddleP1.position.y = Gdx.input.getY(i);
-				}
+			if(Gdx.input.isTouched()){
+				
 			}
 			world.update(deltaTime, 0, 0);
 		}
@@ -126,6 +122,7 @@ public class GameScreen extends Screen{
 		batcher.setProjectionMatrix(guiCam.combined);
 		batcher.enableBlending();
 		batcher.begin();
+		Gdx.input.setInputProcessor(this);
 		switch (state){
 		case GAME_READY:
 			presentReady();
@@ -165,6 +162,64 @@ public class GameScreen extends Screen{
 	@Override
 	public void dispose() {
 	
+	}
+
+	@Override
+	public boolean keyDown(int arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyUp(int arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(int arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchDown(int x, int y, int pointer, int button) {
+		if(x < 480 / 2){
+			world.paddleP1.position.y = 32 - y / 10;
+		}
+		if(x > 480 / 2){
+			world.paddleP2.position.y = 32 - y / 10;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean touchDragged(int x, int y, int pointer) {
+		if(x < 480 / 2){
+			world.paddleP1.position.y = 32 - y / 10;
+		}
+		if(x > 480 / 2){
+			world.paddleP2.position.y = 32 - y / 10;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean touchMoved(int arg0, int arg1) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchUp(int arg0, int arg1, int arg2, int arg3) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
