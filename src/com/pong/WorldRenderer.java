@@ -39,7 +39,7 @@ public class WorldRenderer {
 		Ball ball = world.ball;
 		Paddle paddleP1 = world.paddleP1;
 		Paddle paddleP2 = world.paddleP2;
-		batch.draw(Assets.ball, ball.position.x - 0.9f, ball.position.y - 0.9f, 1, 1);
+		batch.draw(Assets.ball, ball.position.x - 0.5f, ball.position.y - 0.5f, 1, 1);
 		batch.draw(Assets.paddle, paddleP1.position.x - 0.5f, paddleP1.position.y - 3.2f, 1f, 6.4f);
 		batch.draw(Assets.paddle, paddleP2.position.x - 0.5f, paddleP2.position.y - 3.2f, 1f, 6.4f);
 		batch.end();

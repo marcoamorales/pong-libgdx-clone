@@ -28,7 +28,7 @@ public class GameScreen extends Screen implements InputProcessor{
 	int player2Score;
 	String player1ScoreString;
 	String player2ScoreString;
-	FPSLogger fpslogger;
+	//FPSLogger fpslogger;
 	
 	public GameScreen(Game game){
 		super(game);
@@ -49,7 +49,7 @@ public class GameScreen extends Screen implements InputProcessor{
 		player2Score = 0;
 		player1ScoreString = "0";
 		player2ScoreString = "0";
-		fpslogger = new FPSLogger();
+		//fpslogger = new FPSLogger();
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public class GameScreen extends Screen implements InputProcessor{
 			player2ScoreString = "" + player2Score;
 		}
 		
-		fpslogger.log();
+		//fpslogger.log();
 		
 	}
 	
@@ -142,8 +142,8 @@ public class GameScreen extends Screen implements InputProcessor{
 	}
 	
 	public void presentRunning(){
-		Assets.font.draw(batcher, player1ScoreString, 36, 300);
-		Assets.font.draw(batcher, player2ScoreString, 420, 300);
+		Assets.font.draw(batcher, player1ScoreString, 46, 300);
+		Assets.font.draw(batcher, player2ScoreString, 430, 300);
 	}
 	
 	public void presentWon(){

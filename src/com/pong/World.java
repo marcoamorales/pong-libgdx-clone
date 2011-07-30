@@ -67,12 +67,14 @@ public class World {
 			ball.velocity.x = ball.velocity.x * 1.1f;
 			ball.velocity.y = ball.velocity.y * 1.1f;
 			listener.bump();
+			ballBounceResponse();
 		}
 		if (OverlapTester.overlapRectangles(paddleP2.bounds, ball.bounds) && ball.velocity.x > 0){
 			ball.velocity.x = ball.velocity.x * -1;
 			ball.velocity.x = ball.velocity.x * 1.1f;
 			ball.velocity.y = ball.velocity.y * 1.1f;
 			listener.bump();
+			ballBounceResponse();
 		}
 	}
 	
@@ -80,6 +82,24 @@ public class World {
 		if (scoreP1 > 15 || scoreP2 > 15){
 			state = WORLD_STATE_GAME_END;
 		}
+	}
+	
+	public void ballBounceResponse(){
+		float bounceSpot;
+		bounceSpot = (paddleP2.position.y - ball.position.y);
+		System.out.println(bounceSpot);
+		int caseNumber;
+		if (bounceSpot < -3.5 && bounceSpot < -3){
+			//bla bla bla
+		}else if (bounceSpot < -3 && bounceSpot < -2.5){
+			//bla bla bla
+		}else if (bounceSpot < -2.5 && bounceSpot < -2){
+			//bla bla bla
+		}else if (bounceSpot < -2 && bounceSpot < -1.5){
+			
+		}else if (bounceSpot < -1.5 && bounceSpot < 1.5)
+	
+
 	}
 	
 	

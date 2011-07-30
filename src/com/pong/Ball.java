@@ -4,8 +4,8 @@ public class Ball extends GameObject {
 	public static final int BALL_MOVING = 0;
 	public static final int BALL_BOUNCE = 1;
 	public static final int BALL_SCORE = 2;
-	public static final float BALL_WIDTH = 1;
-	public static final float BALL_HEIGHT = 1;
+	public static final float BALL_WIDTH = 1f;
+	public static final float BALL_HEIGHT = 1f;
 	
 	int state;
 	

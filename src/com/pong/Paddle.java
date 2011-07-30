@@ -2,7 +2,7 @@ package com.pong;
 
 public class Paddle extends GameObject{
 	public static final float PADDLE_WIDTH = 1;
-	public static final float PADDLE_HEIGHT = 6.5f;
+	public static final float PADDLE_HEIGHT = 6.4f;
 	public static final float PADDLE_MOVE_VELOCITY = 5;
 	
 	public Paddle(float x, float y){
